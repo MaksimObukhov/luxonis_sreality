@@ -1,0 +1,22 @@
+version: '3'
+services:
+  scrapy:
+    build:
+      context: ./luxonis/luxonis_scraper  # Path to the Scrapy project directory
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: luxonis_sreality
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345lux
+
+  web:
+    image: nginx
+    build: ./luxonis/server
+    ports:
+      - "8080:80"
+    depends_on:
+      - scrapy

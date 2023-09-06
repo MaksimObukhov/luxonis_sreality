@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Apartment Listings</title>
+</head>
+<body>
+<h1>Sreality.cz 500 Apartment Listings by Maksim Obukhov</h1>
+<ol>
+    {% for apartment in data %}
+    <li>
+        <h3>{{ apartment[0] }}</h3>
+        <img src="{{ apartment[1] }}" alt="Apartment Image">
+    </li>
+    {% endfor %}
+</ol>
+</body>
+</html>
