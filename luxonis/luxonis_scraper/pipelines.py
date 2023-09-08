@@ -1,4 +1,5 @@
 import psycopg2
+import time
 
 
 class LuxonisPipeline:
@@ -8,13 +9,29 @@ class LuxonisPipeline:
         username = 'postgres'
         password = '12345lux'
         database = 'luxonis_sreality'
-
-        self.connection = psycopg2.connect(
-            host=hostname,
-            user=username,
-            password=password,
-            dbname=database,
-            port=port)
+        def create_conn():
+            conn = None
+            while not conn:
+                try:
+                    conn = psycopg2.connect(
+                        host='postgres',
+                        port='5432',
+                        user='postgres',
+                        password='12345lux',
+                        dbname='luxonis_sreality'
+                    )
+                    print("Database connection successful")
+                except psycopg2.OperationalError as e:
+                    print(e)
+                    time.sleep(5)
+            return conn
+        self.connection = create_conn()
+        # self.connection = psycopg2.connect(
+        #     host=hostname,
+        #     user=username,
+        #     password=password,
+        #     dbname=database,
+        #     port=port)
 
         self.cur = self.connection.cursor()
 
