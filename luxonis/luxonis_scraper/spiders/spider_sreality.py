@@ -1,9 +1,8 @@
 import scrapy
 from scrapy.spiders import Spider
 from scrapy import Request
+from sys import path
 
-
-# from items import FlatItem
 
 class FlatItem(scrapy.Item):
     title = scrapy.Field()

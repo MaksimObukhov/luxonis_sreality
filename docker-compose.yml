@@ -2,7 +2,7 @@ version: '3'
 services:
   scrapy:
     build:
-      context: ./luxonis/luxonis_scraper
+      context: ./luxonis
     depends_on:
       - postgres
     networks:

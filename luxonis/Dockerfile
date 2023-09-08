@@ -1,6 +1,6 @@
 FROM python:latest
-WORKDIR /luxonis/luxonis_scraper
-COPY requirements.txt ./
+WORKDIR ./luxonis_scraper
+COPY luxonis_scraper/requirements.txt .
 #WORKDIR /app
 #COPY . /app
 
@@ -9,6 +9,10 @@ RUN pip3 install --upgrade pip
 RUN pip3 install --disable-pip-version-check --no-cache-dir -r requirements.txt
 
 RUN pip install scrapy
+RUN pip install Twisted==22.10.0
 
-COPY . .
+WORKDIR ../
+COPY luxonis_scraper ./luxonis_scraper
+COPY scrapy.cfg .
+
 CMD ["scrapy", "crawl", "sreality_spider"]
