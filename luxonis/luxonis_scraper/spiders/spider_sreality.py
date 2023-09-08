@@ -1,6 +1,13 @@
+import scrapy
 from scrapy.spiders import Spider
 from scrapy import Request
-from luxonis.items import FlatItem
+
+
+# from items import FlatItem
+
+class FlatItem(scrapy.Item):
+    title = scrapy.Field()
+    image_url = scrapy.Field()
 
 
 class CrawlingSpider(Spider):

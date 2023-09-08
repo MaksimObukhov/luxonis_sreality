@@ -15,7 +15,7 @@ class LuxonisPipeline:
 
     def create_connection(self):
         self.connection = psycopg2.connect(
-            host='localhost',
+            host='postgres',
             port='5432',
             user='postgres',
             password='12345lux',
@@ -24,9 +24,22 @@ class LuxonisPipeline:
 
         self.cur = self.connection.cursor()
 
+        self.cur.execute("""
+        CREATE TABLE IF NOT EXISTS flats_parsed(
+            id serial PRIMARY KEY,
+            title text,
+            image_url text
+        )
+        """)
+        print('TABLE flat created!')
+        self.cur.execute("""
+        DELETE FROM flat *
+        """)
+
+
     def process_item(self, item, spider):
         self.cur.execute("""
-        INSERT INTO public.flats_parsed (image_url, title)
+        INSERT INTO flats_parsed (image_url, title)
         VALUES(%s, %s)""", (
             str(item["image_url"]),
             item["title"]
