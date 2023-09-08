@@ -4,7 +4,8 @@ services:
     build:
       context: ./luxonis
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     networks:
       - mynetwork
 
