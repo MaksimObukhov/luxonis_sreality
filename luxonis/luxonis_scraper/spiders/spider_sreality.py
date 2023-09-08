@@ -1,7 +1,6 @@
 import scrapy
 from scrapy.spiders import Spider
 from scrapy import Request
-from sys import path
 
 
 class FlatItem(scrapy.Item):

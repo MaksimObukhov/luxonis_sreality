@@ -1,8 +1,7 @@
 FROM python:latest
 WORKDIR ./luxonis_scraper
 COPY luxonis_scraper/requirements.txt .
-#WORKDIR /app
-#COPY . /app
+
 
 RUN /usr/local/bin/python -m pip install --upgrade pip
 RUN pip3 install --upgrade pip
