@@ -7,8 +7,8 @@ This repository contains a web scraping project built with Scrapy to extract apa
 The project is organized as follows:
 
 - `luxonis/`: Contains the Scrapy project files
-- `luxonis_scraper/luxonis_scraper/spiders/`: Contains the spider for scraping Sreality
-- `luxonis_scraper/luxonis_scraper/pipelines.py`: Defines how scraped data is processed
+- `luxonis/luxonis_scraper/spiders/`: Contains the spider for scraping Sreality
+- `luxonis/luxonis_scraper/pipelines.py`: Defines how scraped data is processed
 - `server/`: Contains the Flask web server and HTML templates
 - `server/http_server.py`: Flask web application
 - `server/templates/website_page.html`: HTML template for displaying apartment listings
