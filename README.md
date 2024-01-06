@@ -1,6 +1,6 @@
 # Luxonis Sreality Scraper
-
-This repository contains a web scraping project built with Scrapy to extract apartment listings from **Sreality.cz** and display them on a web page using a Flask web server. The scraping and web server components are containerized using Docker for easy deployment.
+This repository contains a coding exercise for new developers joining the Python development team at [Luxonis](https://www.luxonis.com/).  
+The web scraping project built with Scrapy to extract apartment listings from **Sreality.cz** and display them on a web page using a Flask web server. The scraping and web server components are containerized using Docker for easy deployment.
 
 ## Project Structure
 
